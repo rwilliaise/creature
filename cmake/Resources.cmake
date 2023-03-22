@@ -1,0 +1,16 @@
+
+set(resource_count 0)
+function(compile_resources out_var)
+    set(result "${PROJECT_BINARY_DIR}/res-${resource_count}.c")
+    set(${out_var} ${result})
+    file(WRITE ${result} "")
+    foreach(res ${ARGN})
+        get_filename_component(name ${res} NAME_WE)
+        string(REGEX REPLACE "\\.| |-" "_" name ${name})
+        file(READ ${res} data HEX)
+        string(REGEX REPLACE "([0-9a-f][0-9a-f])" "0x\\1, " data ${data})
+        file(APPEND ${result}
+            "const unsigned char resource_${name}[] = { ${data}};\nconst unsigned resource_${name}_size = sizeof(resource_${name});\n\n")
+    endforeach()
+    math(EXPR resource_count "${resource_count}+1")
+endfunction()

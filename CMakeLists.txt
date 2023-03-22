@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.26)
+project(creature)
+
+enable_testing()
+
+add_library(creature src/model/model.c)
+target_include_directories(creature PUBLIC src)
+
+add_subdirectory(tests/)
+add_subdirectory(src/compute/)

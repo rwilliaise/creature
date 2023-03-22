@@ -1,0 +1,5 @@
+
+#ifndef CREATURE_HOST_H
+#define CREATURE_HOST_H
+
+#endif // CREATURE_HOST_H
