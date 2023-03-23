@@ -1,0 +1,6 @@
+
+#ifndef CREATURE_COMPUTE_H
+#define CREATURE_COMPUTE_H
+
+
+#endif // CREATURE_COMPUTE_H
