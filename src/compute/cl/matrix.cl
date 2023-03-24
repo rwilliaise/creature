@@ -6,14 +6,15 @@ __kernel void matrix_mult(
 	__global float *a,
 	__global float *b,
 	__global float *c,
-	const int m,
 	const int n,
-	const int p)
+    const int p)
 {
 	int i = get_global_id(0);
 	int j = get_global_id(1);
+    float value = 0.f;
 	for (int k = 0; k < n; k++) {
-		c[i * m + j] = a[i * m + k];
+        value += a[i * n + k] * b[k * p + j];
 	}
+    c[i * p + j] = value;
 }
 

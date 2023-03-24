@@ -10,8 +10,3 @@ __kernel void vector_add(
         c[i] = a[i] + b[i];
     }
 }
-
-__kernel void vector_mult(
-	__global float *a,
-	__global float *b,
-	__global
