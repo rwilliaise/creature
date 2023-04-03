@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.25)
-project(creature)
+project(creature C)
 
 enable_testing()
 
